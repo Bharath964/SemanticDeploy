@@ -2,6 +2,6 @@ services:
   - type: web
     name: semantic-segmentation
     runtime: python
-    pythonVersion: "3.10.13"
+    pythonVersion: "3.11.11"  # Match Render's default
     buildCommand: bash build.sh
-    startCommand: python3.10 -m streamlit run areapercentage.py --server.port $PORT
+    startCommand: streamlit run areapercentage.py --server.port $PORT
