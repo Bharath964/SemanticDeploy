@@ -1,9 +1,12 @@
 #!/bin/bash
-# Upgrade pip
-python3.10 -m pip install --upgrade pip
+# Disable Poetry
+unset PIP_REQUIRE_VIRTUALENV
+unset POETRY_VIRTUALENVS_CREATE
+# Install Python 3.10
+pyenv install 3.10.13
+pyenv global 3.10.13
 
-# Install requirements (make sure filename matches)
-python3.10 -m pip install -r requirementsdeploy.txt
-
-# Explicitly install Streamlit
-python3.10 -m pip install streamlit==1.15.2
+# Now use python3.10 explicitly
+python -m pip install --upgrade pip
+python -m pip install -r requirementsdeploy.txt
+python -m pip install streamlit==1.15.2
